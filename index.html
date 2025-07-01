@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background: #ffe6e6;
+            margin-top: 100px;
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .container {
+            display: inline-block;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        h1 {
+            color: #ff4d4d;
+        }
+
+        .btn {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #yes {
+            background-color: #ff4d4d;
+            color: white;
+        }
+
+        .button-row {
+            display: flex;
+            gap: 20px;
+             margin-left: -80px; 
+            margin-top: 10px;
+            position: relative;
+        }
+
+        #no {
+            background-color: #666;
+            color: white;
+            position: absolute; /* Add this */
+            left:200px;         /* Start next to the "yes" button */
+            top: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+    <video class="background-video" autoplay muted loop playsinline>
+        <source src="Hellokitty.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="container">
+        <h1>Who's the good kitty?!!😼</h1>
+        <div class="button-row">
+            <button id="yes" class="btn" onclick="alert('Yes YOU ARE😼')">MEEEEE👉👈</button>
+            <button id="no" class="btn" onmouseover="moveButton()">fk u</button>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.background-video').controls = false;
+
+        function moveButton() {
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 100);
+            let noButton = document.getElementById("no");
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        }
+    </script>
+
+</body>
+</html>
